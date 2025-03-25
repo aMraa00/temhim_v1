@@ -1,0 +1,77 @@
+
+---
+import "../styles/global.css";
+import { twMerge } from "tailwind-merge";
+
+let isOpen = false;
+function toggleMenu() {
+  isOpen = !isOpen;
+}
+---
+
+<nav class="bg-white py-2 shadow-md">
+  <div class="container mx-auto flex justify-center items-center px-4">
+    <!-- Mobile menu button -->
+    <button
+      class="lg:hidden text-gray-700 focus:outline-none"
+      on:click={toggleMenu}
+    >
+      <svg
+        class="w-8 h-8"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+
+    <!-- Desktop menu -->
+    <ul class="hidden lg:flex space-x-6 items-center">
+      <li>
+        <a
+          href="#"
+          class="transition border-2 border-transparent hover:border-t-yellow-400"
+          >Оюутан</a
+        >
+      </li>
+      <li>
+        <a
+          href="#"
+          class="transition border-2 border-transparent hover:border-t-yellow-400"
+          >Багш & Ажилтан</a
+        >
+      </li>
+      <li>
+        <a
+          href="#"
+          class="transition border-2 border-transparent hover:border-t-yellow-400"
+          >Төгсөгч</a
+        >
+      </li>
+      <li>
+        <a
+          href="#"
+          class="transition border-2 border-transparent hover:border-t-yellow-400"
+          >EN</a
+        >
+      </li>
+    </ul>
+  </div>
+
+  <!-- Mobile dropdown menu -->
+  <div class={`lg:hidden ${isOpen ? "block" : "hidden"} bg-white shadow-md`}>
+    <ul class="flex flex-col items-center space-y-2 py-4">
+      <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Оюутан</a></li>
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Багш & Ажилтан</a>
+      </li>
+      <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Төгсөгч</a></li>
+      <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">EN</a></li>
+    </ul>
+  </div>
+</nav>

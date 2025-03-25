@@ -1,0 +1,3 @@
+.nav::before {
+  @apply content-[""] text-yellow-400 h-[3px] w-[100%];
+}
