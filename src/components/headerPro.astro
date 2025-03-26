@@ -1,0 +1,23 @@
+---
+const images = ["/image/MAINscreen1.jpg", "/image/MAINscreen1.jpg"];
+---
+
+<div class="relative w-full h-150">
+  <img
+    id="slider-image"
+    src={images[0]}
+    alt="Slider Image"
+    class="w-full h-full object-cover transition-opacity duration-700 ease-in-out"
+  />
+</div>
+
+<script>
+  let currentIndex = 0;
+  const images = ["/image/MAINscreen1.jpg", "/image/MAINscreen1.jpg"];
+  const sliderImage = document.getElementById("slider-image");
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % images.length;
+    sliderImage.src = images[currentIndex];
+  }, 2000);
+</script>

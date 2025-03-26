@@ -1,0 +1,66 @@
+---
+const contactInfo = {
+  address: "6-р баг, Жаргалант баг,  Ховд аймаг, Монгол улс 840161",
+  poBox: "46/520",
+  phone: "(976)-7700-6901",
+  email: "khovd@num.edu.mn",
+};
+
+const socialLinks = [
+  {
+    icon: "/image/facebook.png",
+    url: "https://www.facebook.com/khovduniversity",
+  },
+  {
+    icon: "/image/instagram.png",
+    url: "https://www.instagram.com/num_khovd?igsh=MXBqYjN5anZ0aWRxYQ==",
+  },
+  { icon: "/image/youtube.png", url: "https://www.youtube.com/@megatron9714" },
+];
+---
+
+<div
+  class="bg-blue-900 text-white bg-cover bg-center bg-no-repeat w-full h-auto"
+  style="background-image: url('/image/footerBack.jpg');"
+>
+  <div class="container mx-auto p-6">
+    <!-- Хаяг хэсэг -->
+    <h1 class="text-2xl font-bold pb-5">МАНАЙ ХАЯГ</h1>
+    <div class="flex items-center gap-2 mt-2">
+      <img src="/public/image/place.png" alt="globe icon" class="h-5 w-auto" />
+      <p>{contactInfo.address}</p>
+    </div>
+    <div class="flex items-center gap-2 mt-2">
+      <img
+        src="/public/image/phone-call.png"
+        alt="globe icon"
+        class="h-5 w-auto"
+      />
+      <p>{contactInfo.phone}</p>
+    </div>
+
+    <!-- Сошиал холбоосууд -->
+    <h2 class="mt-6 text-xl font-bold">МАНАЙ СҮЛЖЭЭНД НЭГДЭЭРЭЙ</h2>
+    <div class="flex gap-4 mt-2">
+      {
+        socialLinks.map((link) => (
+          <a href={link.url} class="text-3xl">
+            <img src={link.icon} alt="icon" class="h-10 w-auto" />
+          </a>
+        ))
+      }
+    </div>
+
+    <!-- И-мэйл -->
+    <h2 class="mt-6 text-xl font-bold">МЭДЭЭ ХҮЛЭЭН АВАХ И-МЭЙЛ:</h2>
+    <p>{contactInfo.email}</p>
+  </div>
+</div>
+<div class="justify-center pt-10 pb-5">
+  <img
+    src="/image/final-logo-num-blue-tran.png"
+    alt="globe icon"
+    class="h-20 w-auto"
+  />
+</div>
+<h2 class="items-start pb-10">© МУИС-ИЙН БАРУУН БҮСИЙН СУРГУУЛЬ</h2>

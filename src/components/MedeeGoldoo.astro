@@ -1,0 +1,96 @@
+---
+import "../styles/global.css";
+import { twMerge } from "tailwind-merge";
+import axios from "axios";
+
+const axiosNews = async () => {
+  try {
+    const response = await axios.get("http://west.edu.mn:3000/api/v1/news");
+
+    if (!response.data.success || !Array.isArray(response.data.news)) {
+      throw new Error("API-аас буруу форматтай өгөгдөл ирлээ.");
+    }
+
+    return response.data.news.slice(0, 3).map((news) => { // ✅ Зөвхөн эхний 3 мэдээг авах
+      const imageBlock = news.blocks.find(
+        (block) => block.type === "simpleImage" || block.type === "image"
+      );
+
+      // ✅ Огноог YYYY.MM.DD формат руу хөрвүүлэх
+      const dateObj = new Date(news.created_at);
+      const formattedDate = `${dateObj.getFullYear()}.${String(dateObj.getMonth() + 1).padStart(2, "0")}.${String(dateObj.getDate()).padStart(2, "0")}`;
+      const formattedTime = `${String(dateObj.getHours()).padStart(2, "0")}:${String(dateObj.getMinutes()).padStart(2, "0")}`;
+
+      // ✅ Гарчгийг 150 тэмдэгтэд хязгаарлах
+      const shortTitle = news.title.length > 66 ? news.title.slice(0, 66) + "..." : news.title;
+
+      // ✅ Тайлбарыг "paragraph" блокоос авах, 500 тэмдэгтэд хязгаарлах
+      const paragraphBlock = news.blocks.find((block) => block.type === "paragraph");
+      const description = paragraphBlock ? (paragraphBlock.data.text.length > 500 ? paragraphBlock.data.text.slice(0, 500) + "..." : paragraphBlock.data.text) : "";
+
+      return {
+        title: shortTitle,
+        date: formattedDate,
+         time: formattedTime,
+        description: description,
+        image: imageBlock ? imageBlock.data.file.url : "",
+      };
+    });
+  } catch (error) {
+    console.error("API axios алдаа:", error);
+    return [];
+  }
+};
+
+// 🟢 API-с мэдээ авах
+const newsCardList = await axiosNews();
+---
+<div class="bg-white ">
+<div class="flex  items-center text-xl px-9 pt-9 pb-9 text-blue-900 font-medium">
+  <div class="flex-1">
+    <h2 class="text-3xl">ЗОХИОН БАЙГУУЛАГДАЖ <br/>БУЙ АРГА ХЭМЖЭЭ</h2>
+    <p class="text-base mt-2">
+      СУРГУУЛИЙН ХЭМЖЭЭНД ЗОХИОН <br/> БАЙГУУЛАГДАЖ БУЙ АРГА ХЭМЖЭЭ
+    </p>
+  </div>
+  <a href="" class="p-2 px-7 border text-base text-center rounded-2xl font-bold">
+    БУСАД АРГА <br/>ХЭМЖЭЭ
+  </a>
+</div>
+
+
+
+<!-- 🟢 Зөвхөн 3 мэдээний картууд -->
+<div class=" bg-white border-b-2 pb-10 grid grid-cols-1 md:grid-cols-3 gap-6 px-10">
+  {newsCardList.map((item) => (
+    <div class=" bg-white rounded-lg shadow-md overflow-hidden">
+      <img
+        src={item.image}
+        alt={item.title}
+        class="w-full h-80 object-cover"
+      />
+      <div class="p-4">
+        <p class="text-gray-600 text-sm flex items-center">
+  <!-- Огнооны icon -->
+  <img src="/public/image/schedule.png" alt="schedule icon" class="h-5 w-5 mr-2" />
+  {item.date}  
+  <!-- Цагийн icon -->
+  <img src="/public/image/clock.png" alt="clock icon" class="h-5 w-5 ml-4 mr-2" />
+  {item.time}
+</p>
+        <h3 class="text-2xl font-semibold text-gray-800 line-clamp-2 overflow-hidden">
+  {item.title}
+</h3>
+        <p class="text-gray-600 text-sm mt-2 line-clamp-3">
+          {item.description} <!-- ✅ 500 тэмдэгттэй тайлбар -->
+        </p>
+         <!-- ✅ Дэлгэрэнгүй товч -->
+  <button class="mt-3 px-8 py-4 bg-white text-gray-800 font-medium border border-gray-300 rounded-4xl transition duration-300 hover:text-blue-500">
+    Дэлгэрэнгүй
+  </button>
+      </div>
+    </div>
+  ))}
+</div>
+</div>
+

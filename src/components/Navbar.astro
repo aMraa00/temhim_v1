@@ -3,165 +3,57 @@ import "../styles/global.css";
 import { twMerge } from "tailwind-merge";
 ---
 
-<nav class="nav bg-white-100 py-2 shadow-md">
-  <div class="container mx-auto flex justify-between items-center">
-    <ul
-      class="flex text-xl space-x-6 container mx-auto flex justify-center items-center px-8"
-    >
-      <li>
-        <a
-          href="#"
-          class="transition border-2 border-transparent hover:border-t-yellow-400"
-          >Оюутан</a
-        >
-      </li>
-      <li>
-        <a
-          href="#"
-          class="transition border-2 border-transparent hover:border-t-yellow-400"
-          >Багш & Ажилтан</a
-        >
-      </li>
-      <li>
-        <a
-          href="#"
-          class="transition border-2 border-transparent hover:border-t-yellow-400"
-          >Төгсөгч</a
-        >
-      </li>
-      <li>
-        <a
-          href="#"
-          class="transition border-2 border-transparent hover:border-t-yellow-400"
-          >EN</a
-        >
-      </li>
-    </ul>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+></script>
+<div
+  class="bg-blue-900 flex items-center justify-between px-5 py-7 fixed top-0 left-0 w-full z-50 shadow-md"
+>
+  <!-- Лого ба нэр (Голлуулсан) -->
+  <div class="flex-1 flex justify-start items-center space-x-4">
+    <img
+      src="/public/image/image.png"
+      alt="NUM Logo"
+      class="px-5 h-12 w-auto"
+    />
+    <h1 class="text-lg font-medium text-white">МОНГОЛ УЛСЫН ИХ СУРГУУЛЬ</h1>
   </div>
-</nav>
 
-<nav class="bg-blue-900 text-xl text-white">
-  <div class="container mx-auto flex justify-center items-center px-2">
-    <div class="relative group z-50">
-      <button class="hover:bg-yellow-400 flex items-center space-x-2 py-5 px-2">
-        <span>МУИС</span>
-        <svg
-          class="w-4 h-4"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 9l-7 7-7-7"></path>
-        </svg>
+  <div class="flex items-center space-x-4">
+    <!-- Хэл сонголт -->
+    <div x-data="{ open: false }" class="relative">
+      <button @click="open = !open" class="focus:outline-none">
+        <img
+          src="/public/image/world.png"
+          alt="globe icon"
+          class="h-8 w-auto"
+        />
       </button>
-      <!-- Dropdown Menu -->
       <div
-        class="absolute hidden group-hover:block bg-white text-black rounded shadow-md w-[900px] mt-2"
+        x-show="open"
+        @click.away="open = false"
+        class="absolute right-0 mt-2 w-40 bg-white text-black rounded-lg shadow-lg overflow-hidden"
       >
-        <a href="#" class="block px-4 py-2 hover:bg-gray-600">Засаглал</a>
-        <a href="#" class="block px-4 py-2 hover:bg-gray-600"
-          >Гүйцэтгэх удирдлага</a
-        >
-        <a href="#" class="block px-4 py-2 hover:bg-gray-600">Бүрэлдэхүүн</a>
-        <a href="#" class="block px-4 py-2 hover:bg-gray-600">Багш ажилтан</a>
-        <a href="#" class="block px-4 py-2 hover:bg-gray-600">Тоон баримт</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-200">Монгол</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-200">English</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-200">Русский</a>
       </div>
     </div>
-    <ul class="flex justify-center items-center px-8">
-      <li>
-        <a
-          href="#"
-          class="hover:bg-yellow-400 flex items-center space-x-2 py-5 px-6"
-          >МЭДЭЭ & ҮЙЛ ЯВДАЛ</a
+
+    <!-- Цэс (Menu) -->
+    <div x-data="{ open: false }" class="relative px-3">
+      <button @click="open = !open" class="focus:outline-none">
+        <img src="/public/image/menu.png" alt="menu icon" class="h-7 w-auto" />
+      </button>
+      <div
+        x-show="open"
+        @click.away="open = false"
+        class="absolute right-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg overflow-hidden"
+      >
+        <a href="#" class="block px-4 py-2 hover:bg-gray-200">🏠 Нүүр</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-200">📜 Мэдээ</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-200">📞 Холбоо барих</a
         >
-      </li>
-      <nav class={twMerge("bg-blue-900  flex items-center justify-between")}>
-        <!-- Лого -->
-        <a href="/" class="flex items-center">
-          <img
-            src="/public/image/NUMpng.png"
-            alt="Logo"
-            class="h-23 w-auto py-2 px-2"
-          />
-        </a>
-      </nav>
-      <div class="relative group z-50">
-        <button
-          class="hover:bg-yellow-400 flex items-center space-x-2 py-5 px-6"
-        >
-          <span>ЭЛСЭЛТ</span>
-          <svg
-            class="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
-        <!-- Dropdown Menu -->
-        <div
-          class="absolute hidden group-hover:block bg-white text-black rounded shadow-md w-52 mt-2"
-        >
-          <a href="#" class="block px-4 py-2 hover:bg-gray-600">Бакалавр</a>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-600">Ахисан түвшин</a
-          >
-          <a href="#" class="block px-4 py-2 hover:bg-gray-600"
-            >Иргэнээр суралцах</a
-          >
-        </div>
       </div>
-      <div class="relative group z-50">
-        <button
-          class="hover:bg-yellow-400 flex items-center space-x-2 py-5 px-6"
-        >
-          <span>СУДАЛГАА</span>
-          <svg
-            class="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
-        <!-- Dropdown Menu -->
-        <div
-          class="absolute hidden group-hover:block bg-white text-black rounded shadow-md w-65 mt-2"
-        >
-          <a href="#" class="block px-4 py-2 hover:bg-gray-600"
-            >Хамтрах боломж</a
-          >
-          <a href="#" class="block px-4 py-2 hover:bg-gray-600"
-            >Судлаачийн дэмжлэг</a
-          >
-          <a href="#" class="block px-4 py-2 hover:bg-gray-600"
-            >Судалгаагаар холбогдох</a
-          >
-        </div>
-      </div>
-    </ul>
-    <nav class={twMerge("bg-blue-900  flex items-center justify-between")}>
-      <!-- Лого -->
-      <a href="/" class="flex items-center">
-        <img
-          src="/public/image/search-13.png"
-          alt="Icon"
-          class="h-10 w-auto py-2 px-2"
-        />
-      </a>
-    </nav>
+    </div>
   </div>
-</nav>
+</div>

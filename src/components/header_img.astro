@@ -27,8 +27,8 @@ const axiosNews = async () => {
 const newsList = await axiosNews();
 ---
 
-<div class="relative w-full mx-auto mt-5">
-  <div class="overflow-hidden rounded-lg">
+<div class="relative bg-white w-full mx-auto pt-15">
+  <div class="overflow-hidden">
     {
       newsList.length > 0 ? (
         <div
@@ -36,18 +36,18 @@ const newsList = await axiosNews();
           class="flex transition-transform duration-700 ease-in-out"
         >
           {newsList.map((item, i) => (
-            <div class="w-1/3 px-2 shrink-0" key={i}>
-              <div class="relative h-90 rounded-lg overflow-hidden">
+            <div class="w-full  shrink-0" key={i}>
+              <div class="relative h-150  overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
-                  class="w-full h-full align-middle object-cover "
+                  class="w-full h-full  align-middle object-cover "
                 />
-                <div class=" absolute bottom-0 left-0 w-full h-25 bg-blue-900 bg-opacity-50 text-white text-center align-middle p-2">
+                {/* <div class=" absolute bottom-0 left-0 w-full h-25 bg-blue-900 bg-opacity-50 text-white text-center align-middle p-2">
                   <h2 class=" text-xl font-semibold align-middle ">
                     {item.title}
                   </h2>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}

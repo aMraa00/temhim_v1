@@ -1,0 +1,46 @@
+---
+import "../styles/global.css";
+import { twMerge } from "tailwind-merge";
+---
+
+<html>
+  <head>
+    <title>ШУТИС-ийн элсэгчдэд зориулсан зөвлөмж</title>
+  </head>
+  <body class="bg-blue-900 text-white flex flex-col items-center py-5">
+    <!-- Элсэгчдэд зориулсан хэсэг -->
+    <div
+      class="relative w-full max-w-4xl text-center py-5 min-h-[50vh] overflow-hidden"
+    >
+      <!-- Арын зураг -->
+      <div
+        class="absolute inset-0 bg-cover bg-center opacity-50"
+        style="background-image: url('/public/image/admissionBig.png');"
+      >
+      </div>
+
+      <!-- Гарчиг -->
+      <h1
+        class="relative text-3xl font-bold bg-blue-900 bg-opacity-60 inline-block px-6 py-10 rounded-lg"
+      >
+        ШУТИС-ИЙН ЭЛСЭГЧДЭД<br />ЗОРИУЛСАН ЗӨВЛӨМЖ
+      </h1>
+
+      <!-- Товчлуурууд -->
+      <div class="relative mt-6 flex flex-wrap justify-center gap-4">
+        <button class="border border-white px-4 py-2 rounded-lg"
+          >БАКАЛАВРЫН ЭЛСЭЛТИЙН ЖУРАМ</button
+        >
+        <button class="border border-white px-4 py-2 rounded-lg"
+          >БАКАЛАВРЫН ХӨТӨЛБӨРҮҮД</button
+        >
+        <button class="border border-white px-4 py-2 rounded-lg"
+          >ШУТИС-ИЙН ЦАГ</button
+        >
+        <button class="border border-white px-4 py-2 rounded-lg text-yellow-400"
+          >ЭЛСЭЛТИЙН ВЕБ</button
+        >
+      </div>
+    </div>
+  </body>
+</html>

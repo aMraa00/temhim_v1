@@ -1,185 +1,29 @@
 ---
 import Navbar from "../components/Navbar.astro";
-import HeaderImg from "../components/header_img.astro";
-import Navbar_mobile from "../components/Navbar_mobile.astro";
-import Carousel from "../components/Carousel.jsx";
-import NavbarMobile from "../components/Navbar_mobile.astro";
-import Fooder from "../components/fooder.astro";
-import Contact from "../components/contact.astro";
+// import HeaderImg from "../components/header_img.astro";
+import MedeeGol from "../components/MedeeGoldoo.astro";
+import ElsegchZuwlumj from "../components/ElsegchZuwlumj.astro";
+import ToonMedeelel from "../components/ToonMedeelel.astro";
+import TenhimList from "../components/tenhimList.astro";
+import FooderList from "../components/FooderList.astro";
+
+import HeaderImg from "../components/headerPro.astro";
 ---
 
-<html lang="mn">
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Монгол Улсын Их Сургууль</title>
-    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
-  <body class="w-full bg-white">
-    <!-- <Navbar /> -->
-    <Navbar class="sticky top-0 left-0 w-full bg-white shadow-md z-50" />
+  <body>
+    <Navbar />
     <HeaderImg />
-    <!-- Контейнер -->
-    <div class="w-full mx-auto px-50">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <!-- Зурагтай хэсэг -->
-        <div class="flex gap-5">
-          <div class="flex flex-col gap-5">
-            <img src="http://west.edu.mn:3000/upload/programfiles/alsiin.jpg" />
-          </div>
-        </div>
-
-        <!-- Алсын хараа текст -->
-        <div
-          class="inline-block align-middle bg-gray-200 h-[400px] p-6 rounded-lg shadow-md"
-        >
-          <h2 class="text-3xl text-center font-bold text-gray-800">
-            Алсын хараа
-          </h2>
-          <p class="text-2xl mt-4 text-gray-900 text-justify inline-block">
-            МУИС-ийн алсын хараа нь “дэлхийн түвшний их сургууль” болоход
-            оршино. Үүний хувьд 2024 онд МУИС нь чөлөөт мэдлэг буюу “либерал
-            арт” уламжлалд суурилсан, бүс нутгийн хэмжээнд тэргүүлэх байр
-            суурьтай судалгааны их сургууль болж, улмаар Азийн шилдэг 100 их
-            сургуулийн эгнээнд багтаж орно.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Контейнер -->
-    <div class="w-full mx-auto px-50">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <!-- Эрхэм зорилго текст -->
-        <div
-          class="inline-block align-middle bg-white p-6 rounded-lg shadow-md"
-        >
-          <h2 class="text-3xl text-center font-bold text-gray-800">
-            Эрхэм зорилго
-          </h2>
-          <p
-            class="text-2xl mt-4 text-gray-600 text-justify inline-block align-middle"
-          >
-            Алсын харааны хүрээнд МУИС нь шинжлэх ухааны үндсэн салбаруудыг
-            чөлөөт мэдлэг буюу “либерал арт” уламжлалд суурилсан хөтөлбөртэй,
-            байгалийн ухаан, эдийн засаг, нийгмийн хөгжлийн суурь асуудлаар
-            сургалт, судалгааны ажлыг тогтвортой эрхэлж, эрдэм мэдлэгийг түгээн
-            дэлгэрүүлэх эрхэм зорилготой академик буюу эрдмийн байгууллага юм.
-          </p>
-        </div>
-        <!-- Зурагтай хэсэг -->
-        <div class="flex gap-5">
-          <div class="flex flex-col gap-5">
-            <img
-              src="https://www.num.edu.mn/wp-content/uploads/2024/01/grad-scaled-e1705378650270-1024x682.jpg"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Мэдээлэл_Статус -->
-    <section class="py-10 bg-white">
-      <div class="container mx-auto flex flex-wrap justify-center gap-10">
-        <!-- Багш ажилчид -->
-        <div class="text-center">
-          <h2 class="text-5xl font-bold text-blue-500">170</h2>
-          <p class="text-gray-700 mt-2">БАГШ АЖИЛЧИД</p>
-        </div>
-
-        <!-- Divider -->
-        <div class="hidden md:block w-px bg-gray-300"></div>
-
-        <!-- Оюутан -->
-        <div class="text-center">
-          <h2 class="text-5xl font-bold text-red-500">1500</h2>
-          <p class="text-gray-700 mt-2">ОЮУТАН</p>
-        </div>
-
-        <!--  Divider -->
-        <div class="hidden md:block w-px bg-gray-300"></div>
-
-        <!-- Хөтөлбөр -->
-        <div class="text-center">
-          <h2 class="text-5xl font-bold text-purple-500">54</h2>
-          <p class="text-gray-700 mt-2">ХӨТӨЛБӨР</p>
-        </div>
-
-        <!-- Divider -->
-        <div class="hidden md:block w-px bg-gray-300"></div>
-
-        <!-- Магадлан итгэмжлэл -->
-        <div class="text-center">
-          <h2 class="text-5xl font-bold text-yellow-500">3</h2>
-          <p class="text-gray-700 mt-2">МАГАДЛАН ИТГЭМЖЛЭЛ</p>
-        </div>
-      </div>
-    </section>
-    <!-- Линк_холбоос -->
-    <section class="py-12 bg-white">
-      <div class="container mx-auto text-center">
-        <!-- Гарчиг -->
-        <h2 class="text-2xl font-bold mb-6">Чухал холбоос</h2>
-
-        <!-- Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
-          <!-- CloudUni систем -->
-          <a
-            href="#"
-            class="flex flex-col items-center space-y-3 hover:scale-105 transition"
-          >
-            <img
-              src="http://west.edu.mn:3000/upload/programfiles/CloudUni.png"
-              alt="CloudUni"
-              class="h-20 w-auto"
-            />
-            <p class="text-gray-700">CloudUni систем</p>
-          </a>
-
-          <!-- Номын сан -->
-          <a
-            href="#"
-            class="flex flex-col items-center space-y-3 hover:scale-105 transition"
-          >
-            <img
-              src="http://www.west.edu.mn:3000/upload/programfiles/admis.png"
-              alt="Номын сан"
-              class="h-20 w-auto"
-            />
-            <p class="text-gray-700">Номын сан</p>
-          </a>
-
-          <!-- Цахим сургалт -->
-          <a
-            href="#"
-            class="flex flex-col items-center space-y-3 hover:scale-105 transition"
-          >
-            <img
-              src="http://www.west.edu.mn:3000/upload/programfiles/esurgaltLogo.png"
-              alt="e-Surgalt"
-              class="h-20 w-auto"
-            />
-            <p class="text-gray-700">Цахим сургалтын систем</p>
-          </a>
-
-          <!-- 🔹 Эрдэм шинжилгээ -->
-          <a
-            href="#"
-            class="flex flex-col items-center space-y-3 hover:scale-105 transition"
-          >
-            <img
-              src="http://www.west.edu.mn:3000/upload/programfiles/research.png"
-              alt="Эрдэм шинжилгээ"
-              class="h-20 w-auto"
-            />
-            <p class="text-gray-700">Эрдэм шинжилгээ</p>
-          </a>
-        </div>
-      </div>
-    </section>
-    <!-- contact -->
-    <Contact />
-    <!-- fooder -->
-    <Fooder />
+    <MedeeGol />
+    <ElsegchZuwlumj />
+    <ToonMedeelel />
+    <TenhimList />
+    <FooderList />
   </body>
 </html>
